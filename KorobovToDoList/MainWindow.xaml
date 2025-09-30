@@ -5,9 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KorobovToDoList"
         mc:Ignorable="d"
-        Title="MainWindow" Height="829" Width="1171">
+        Title="MainWindow" Height="425" Width="765">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="182" Margin="350,140,0,0" VerticalAlignment="Top" Width="235" Click="Button_Click" Cursor="Hand"/>
-
+        <TextBox HorizontalAlignment="Left" Margin="55,116,0,0" TextWrapping="Wrap" 
+            Name ="NewTaskTextBox"
+            Text="Введите задачу..." 
+            VerticalAlignment="Top" 
+                 Width="226" Height="24"/>
+        <DatePicker HorizontalAlignment="Left" Margin="56,68,0,0" VerticalAlignment="Top" 
+                    Name="DueDatePicker"
+                    Width="226" Height="24"/>
+        <Label Content="Выберите дату и введите задачу:" 
+               HorizontalAlignment="Left" 
+               Height="34" Width="226"
+               Margin="56,10,0,0" 
+               VerticalAlignment="Top" 
+               FontSize="14"/>
     </Grid>
 </Window>
