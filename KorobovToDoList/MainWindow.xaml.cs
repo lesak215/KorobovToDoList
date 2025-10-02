@@ -21,7 +21,35 @@ namespace KorobovToDoList
         public MainWindow()
         {
             InitializeComponent();
+            TasksList.ItemsSource = _tasks;
+            DueDatePicker.SelectedDate = DateTime.Now;
+
         }
-       
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            var newTask = new classes.Task
+            {
+                ID = _tasks.Count + 1,
+                Title = NewTaskTextBox.Text,
+                DueDate = DueDatePicker.SelectedDate.Value,
+                IsCompleted = false,
+            };
+
+            _tasks.Add(newTask);
+
+            NewTaskTextBox.Clear();
+            NewTaskTextBox.Focus();
+
+        }
+        private void DelButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTask = (classes.Task)TasksList.SelectedItem;
+            _tasks.Remove(selectedTask);
+        }
+        private void CorButton_Click(Object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

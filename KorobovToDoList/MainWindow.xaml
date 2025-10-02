@@ -23,20 +23,71 @@
                FontSize="14"/>
         <Button Content="Добавить задачу" HorizontalAlignment="Left" 
                 Name ="AddButton"
+                Click="AddButton_Click"
                 Margin="55,205,0,0" VerticalAlignment="Top" 
                 Height="34" Width="226" Cursor="Hand"/>
         <Button Content="Удалить задачу" HorizontalAlignment="Left"
                 Name="DelButton"
+                Click="DelButton_Click"
                 Margin="55, 255, 0, 0" VerticalAlignment="Top"
                 Height="34" Width="226" Cursor="Hand"/>
         <Button Content="Изменить задачу" HorizontalAlignment="Left"
-                Name ="CorButton" 
+                Name ="CorButton"
+                Click="CorButton_Click"
                 Margin="55, 310, 0, 0" VerticalAlignment="Top"
                 Height="34" Width="226" Cursor="Hand" IsDefault="True"/>
         <Label Content="Выберите действие:" HorizontalAlignment="Left" Margin="55,160,0,0" 
                VerticalAlignment="Top" 
                Height="34" Width="226"/>
-        <ListBox d:ItemsSource="{Binding}" 
-                 Margin="350,35,35,35"/>
+        <ListBox Name="TasksList" 
+         Margin="350,35,35,35"
+         Background="White"
+         BorderBrush="LightGray"
+         BorderThickness="1"
+         ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border 
+                    BorderBrush="#FFE0E0E0" 
+                    BorderThickness="0,0,0,1" 
+                    Padding="10,8">
+                        <StackPanel Orientation="Horizontal">
+
+                            <CheckBox IsChecked="{Binding IsCompleted}" 
+                             VerticalAlignment="Center"
+                             Margin="0,0,12,0"/>
+
+
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" 
+                                  FontSize="14" 
+                                  FontWeight="SemiBold"/>
+
+                                <TextBlock Text="{Binding DueDate, StringFormat='Срок: {0:dd.MM.yyyy}'}" 
+                                  FontSize="12" 
+                                  Foreground="Gray"
+                                  Margin="0,4,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFE8F4FD"/>
+                            <Setter Property="BorderBrush" Value="#FF0078D7"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFF0F0F0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </Window>
