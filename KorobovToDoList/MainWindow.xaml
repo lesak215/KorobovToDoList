@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KorobovToDoList"
         mc:Ignorable="d"
-        Title="MainWindow" Height="425" Width="765">
+        Title="ToDoList by korobov" Height="425" Width="765">
     <Grid>
         <TextBox HorizontalAlignment="Left" Margin="55,116,0,0" TextWrapping="Wrap" 
             Name ="NewTaskTextBox"
             Text="Введите задачу..." 
             VerticalAlignment="Top" 
-                 Width="226" Height="24"/>
+            Width="226" Height="24"/>
         <DatePicker HorizontalAlignment="Left" Margin="55,68,0,0" VerticalAlignment="Top" 
                     Name="DueDatePicker"
                     Width="226" Height="24"/>
