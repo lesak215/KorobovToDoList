@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KorobovToDoList.classes
 {
-    internal class Task
+    public class Task
     {
         public int ID { get; set; }
         public string Title { get; set; }

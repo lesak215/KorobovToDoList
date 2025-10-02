@@ -49,7 +49,13 @@ namespace KorobovToDoList
         }
         private void CorButton_Click(Object sender, RoutedEventArgs e)
         {
+            var selectedTask = (classes.Task)TasksList.SelectedItem;
 
+            var editWindow = new EditWindow(selectedTask);
+            editWindow.Owner = this;
+
+            bool? result = editWindow.ShowDialog();
+            TasksList.Items.Refresh();
         }
     }
 }

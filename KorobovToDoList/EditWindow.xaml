@@ -14,17 +14,20 @@
             Margin="20,160,0,0" 
             Width="226" Height="34"
             VerticalAlignment="Top"
-            Cursor="Hand"/>
+            Cursor="Hand"
+            Click="EditSaveButton_Click"/>
         <Button 
             Name = "EditCancelButton"
             Content="Отменить" 
             HorizontalAlignment="Right" 
-            Margin="0,160, 20,0"
-            Width="226" Height="34"
+            Margin = "0,160, 20,0"
+            Width = "226" Height = "34"
             VerticalAlignment="Top"
-            Cursor="Hand"/>
+            Cursor = "Hand"
+            Click = "EditCancelButton_Click"
+            />
         <DatePicker
-            Name = "EditDataPiker"
+            Name = "EditDatePiker"
             HorizontalAlignment="Center" 
             Margin="0,99,0,0" 
             Width="226"
