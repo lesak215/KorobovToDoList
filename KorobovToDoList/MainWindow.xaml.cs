@@ -88,5 +88,12 @@ namespace KorobovToDoList
                 MessageBoxInfo.ShowSuccess("Задача изменена.");
             }
         }
+        private void SecretButton_click(object sender, RoutedEventArgs e)
+        {
+            var SecretWindow = new SecretWindow();
+            SecretWindow.Owner = this;
+            SecretWindow.ShowDialog();
+        }
     }
+
 }

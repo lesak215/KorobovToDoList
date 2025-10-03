@@ -32,7 +32,7 @@
         <Button Content="Удалить задачу" HorizontalAlignment="Left"
                 Name="DelButton"
                 Click="DelButton_Click"
-                Margin="55, 255, 0, 0" VerticalAlignment="Top"
+                Margin="55, 259, 0, 0" VerticalAlignment="Top"
                 Height="34" Width="226" Cursor="Hand"/>
         <Button Content="Изменить задачу" HorizontalAlignment="Left"
                 Name ="CorButton"
@@ -92,5 +92,17 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
+        <Button Name="SecretButton" Click="SecretButton_click"
+                Margin="55, 360, 0, 0"
+                HorizontalAlignment="Left"
+                Content="Тут секретик(нажми)"
+                VerticalAlignment="Top"
+                Height="25" Width="226"
+                Cursor="Hand"
+                Background="Transparent"
+                BorderThickness="0"
+                Foreground="Gray"
+                />
+
     </Grid>
 </Window>
