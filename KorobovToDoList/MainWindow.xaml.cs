@@ -23,14 +23,18 @@ namespace KorobovToDoList
             InitializeComponent();
             TasksList.ItemsSource = _tasks;
             DueDatePicker.SelectedDate = DateTime.Now;
-
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(NewTaskTextBox.Text) || NewTaskTextBox.Text == "Введите задачу...")
             {
-                MessageBox.Show("Братанчик, введи нормальную задачу");
+                MessageBox.Show("Сначала введите задачу!");
+                return;
+            }
+            if(DueDatePicker.SelectedDate == null)
+            {
+                MessageBox.Show("Сначала выберите дату!");
                 return;
             }
             var newTask = new classes.Task
@@ -49,20 +53,33 @@ namespace KorobovToDoList
         }
         private void DelButton_Click(object sender, RoutedEventArgs e)
         {
+            if (TasksList.SelectedItem == null)
+            {
+                MessageBox.Show("Сначала выберите задачу!");
+                return;
+            }
             var selectedTask = (classes.Task)TasksList.SelectedItem;
             _tasks.Remove(selectedTask);
             MessageBox.Show("Удалено!");
         }
         private void CorButton_Click(Object sender, RoutedEventArgs e)
         {
+            if (TasksList.SelectedItem == null)
+            {
+                MessageBox.Show("Сначала выберите задачу!");
+                return;
+            }
             var selectedTask = (classes.Task)TasksList.SelectedItem;
 
             var editWindow = new EditWindow(selectedTask);
             editWindow.Owner = this;
 
             bool? result = editWindow.ShowDialog();
-            TasksList.Items.Refresh();
-            MessageBox.Show("Успешно!");
+            if(result == true)
+            {
+                TasksList.Items.Refresh();
+                MessageBox.Show("Успешно!");
+            }
         }
     }
 }

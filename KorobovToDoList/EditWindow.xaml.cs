@@ -32,6 +32,11 @@ namespace KorobovToDoList
 
         private void EditSaveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(EditTextBox.Text))
+            {
+                MessageBox.Show("Введите измененную задачу!");
+                return;
+            }
             _task.Title = EditTextBox.Text;
             _task.DueDate = EditDatePiker.SelectedDate ?? DateTime.Today;
             DialogResult = true;
