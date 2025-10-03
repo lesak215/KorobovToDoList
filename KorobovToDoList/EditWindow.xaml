@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KorobovToDoList"
         mc:Ignorable="d"
         Title="Редактирование задачи" Height="240" Width="545"
-        ResizeMode="NoResize"
+        ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Button 

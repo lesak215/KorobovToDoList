@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KorobovToDoList"
         mc:Ignorable="d"
         Title="ToDoList by korobov" Height="425" Width="765"
-        ResizeMode="NoResize"
+        ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox HorizontalAlignment="Left" Margin="55,116,0,0" TextWrapping="Wrap" 
