@@ -17,9 +17,9 @@ namespace KorobovToDoList.classes
         {
             MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
         }
-        public static void ShowWarning(string message, string title = "Внимание!")
+        public static MessageBoxResult ShowQuestion(string message, string title = "Внимание!")
         {
-            MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            return MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question);
         }
     }
 }

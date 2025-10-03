@@ -34,7 +34,7 @@ namespace KorobovToDoList
         {
             if (string.IsNullOrWhiteSpace(EditTextBox.Text))
             {
-                MessageBox.Show("Введите измененную задачу!");
+                classes.MessageBoxInfo.ShowError("Введите измененную задачу!");
                 return;
             }
             _task.Title = EditTextBox.Text;

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using KorobovToDoList.classes;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,12 +30,12 @@ namespace KorobovToDoList
         {
             if (string.IsNullOrWhiteSpace(NewTaskTextBox.Text) || NewTaskTextBox.Text == "Введите задачу...")
             {
-                MessageBox.Show("Сначала введите задачу!");
+                MessageBoxInfo.ShowError("Введите вашу задачу!");
                 return;
             }
             if(DueDatePicker.SelectedDate == null)
             {
-                MessageBox.Show("Сначала выберите дату!");
+                MessageBoxInfo.ShowError("Выберите дату!");
                 return;
             }
             var newTask = new classes.Task
@@ -46,7 +47,6 @@ namespace KorobovToDoList
             };
 
             _tasks.Add(newTask);
-
             NewTaskTextBox.Clear();
             NewTaskTextBox.Focus();
 
@@ -55,18 +55,25 @@ namespace KorobovToDoList
         {
             if (TasksList.SelectedItem == null)
             {
-                MessageBox.Show("Сначала выберите задачу!");
+                MessageBoxInfo.ShowError("Сначала выберите задачу!");
                 return;
             }
-            var selectedTask = (classes.Task)TasksList.SelectedItem;
-            _tasks.Remove(selectedTask);
-            MessageBox.Show("Удалено!");
+            var selectResult = MessageBoxInfo.ShowQuestion("Вы действительно хотите удалить задачу?");
+            if (selectResult == MessageBoxResult.Yes)
+            {
+                var selectedTask = (classes.Task)TasksList.SelectedItem;
+                _tasks.Remove(selectedTask);
+                MessageBoxInfo.ShowSuccess("Задача удалена.");
+            } else
+            {
+                return;
+            }
         }
         private void CorButton_Click(Object sender, RoutedEventArgs e)
         {
             if (TasksList.SelectedItem == null)
             {
-                MessageBox.Show("Сначала выберите задачу!");
+                MessageBoxInfo.ShowError("Сначала выберите задачу!");
                 return;
             }
             var selectedTask = (classes.Task)TasksList.SelectedItem;
@@ -78,7 +85,7 @@ namespace KorobovToDoList
             if(result == true)
             {
                 TasksList.Items.Refresh();
-                MessageBox.Show("Успешно!");
+                MessageBoxInfo.ShowSuccess("Задача изменена.");
             }
         }
     }
