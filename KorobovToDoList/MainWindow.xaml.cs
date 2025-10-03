@@ -28,6 +28,11 @@ namespace KorobovToDoList
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(NewTaskTextBox.Text) || NewTaskTextBox.Text == "Введите задачу...")
+            {
+                MessageBox.Show("Братанчик, введи нормальную задачу");
+                return;
+            }
             var newTask = new classes.Task
             {
                 ID = _tasks.Count + 1,
@@ -46,6 +51,7 @@ namespace KorobovToDoList
         {
             var selectedTask = (classes.Task)TasksList.SelectedItem;
             _tasks.Remove(selectedTask);
+            MessageBox.Show("Удалено!");
         }
         private void CorButton_Click(Object sender, RoutedEventArgs e)
         {
@@ -56,6 +62,7 @@ namespace KorobovToDoList
 
             bool? result = editWindow.ShowDialog();
             TasksList.Items.Refresh();
+            MessageBox.Show("Успешно!");
         }
     }
 }
